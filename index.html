@@ -5,12 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utility.css">
 </head>
 <body>
-    <div class="container">
-        <div class="searchbar">
+    <div class="container flex flex-column item-center">
+        <div class="searchbar flex">
             <input type="text">
             <img src="https://img.icons8.com/?size=100&id=59878&format=png&color=000000" alt="search-icon">
+        </div>
+        <div class="img-status">
+            <img src="./assets/sunny_2425895.png" alt="Weather-status">
+        </div>
+        <div class="status flex flex-column gap-1 item-center">
+            <h1>13<sup>&deg;C</sup></h1>
+            <p>mist</p>
+        </div>
+        <div class="extraData flex gap-3">
+            <div class="humidity flex gap-2">
+                <img src="https://img.icons8.com/?size=100&id=18585&format=png&color=000000" alt="humidity-icon">
+                <div class="details flex flex-column">
+                    <h3>88%</h3>
+                    <p>Humidity</p>
+                </div>
+            </div>
+            <div class="windSpeed flex gap-2">
+                <img src="https://img.icons8.com/?size=100&id=91853&format=png&color=000000" alt="windSpeed-icon">
+                <div class="details flex flex-column">
+                    <h3>1Km/h</h3>
+                    <p>Wind Speed</p>
+                </div>
+            </div>
         </div>
     </div>
 </body>
