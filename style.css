@@ -19,24 +19,36 @@ body {
 
 .container {
     width: 350px;
-    height: 500px;
-    background-color: blanchedalmond;
     border-radius: 15px;
-    box-shadow: 0px 0px 5px black;
-    padding: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.212);
+    padding: 25px;
+    color: white;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.459);
+
 }
 
 .searchbar input {
     position: relative;
-    padding: 10px;
+    padding: 10px 36px;
     width: 100%;
     border-radius: 10px;
-    border: 1px solid white;
+    background:none;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.212);
+    color: white;
 }
 
-.searchbar img{
+.searchbar img:nth-of-type(1){
     position: absolute;
-    top:9px;
+    top:10px;
+    left: 10px;
+    width: 19px;
+}
+
+.searchbar img:nth-of-type(2){
+    position: absolute;
+    top:10px;
     right: 10px;
     width: 20px;
 }
@@ -47,6 +59,7 @@ body {
 }
 
 .img-status img {
+    margin-top: 30px;
     width: 180px;
 }
 
@@ -65,4 +78,5 @@ body {
 
 .extraData .details {
     font-size: 13px;
+    font-weight: 500;
 }

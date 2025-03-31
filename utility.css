@@ -29,3 +29,15 @@
 .space-between {
     justify-content: space-between;
 }
+
+.invert {
+    filter: invert(1);
+}
+
+.disnone {
+    display: none;
+}
+
+.marBotm-30px {
+    margin-bottom: 30px;
+}
