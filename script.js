@@ -15,8 +15,6 @@ async function getWeatherData(city) {
     }
 }
 
-// getWeatherData()
-
 var updateWeatherData = (data) =>  {
     document.querySelector('.status h1').innerHTML = `${Math.round(data.main.temp)}<sup>°C</sup>`;
     document.querySelector('.status p').innerText = data.weather[0].main;
@@ -26,8 +24,8 @@ var updateWeatherData = (data) =>  {
     document.querySelectorAll('.disnone').forEach(e => e.classList.remove('disnone'));
 }
 var searchBar = document.querySelector('.searchbar input');
-searchBar.addEventListener('keydown', (e) => {
-    console.log(e);
-    console.log(searchBar.value);
-    
+searchBar.addEventListener('keydown', () => {
+    if(searchBar.value.length >= 2){
+        getWeatherData(searchBar.value);
+    }
 })
