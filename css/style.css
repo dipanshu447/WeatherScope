@@ -59,9 +59,11 @@ body {
 }
 
 .img-status img {
-    margin-top: 30px;
-    width: 180px;
-}
+    margin-top: 10px;
+    width: 200px;
+    image-rendering: -webkit-optimize-contrast;
+    filter: contrast(130%) brightness(105%)
+} 
 
 .extraData img{
     width: 30px;
