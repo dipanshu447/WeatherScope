@@ -25,6 +25,17 @@ var updateWeatherData = (data) =>  {
     document.querySelector('.container').classList.add('visible');
 }
 var searchBar = document.querySelector('.searchbar input');
+var recentSearch = document.querySelector('.recent-search');
+searchBar.addEventListener('click',() => recentSearch.classList.remove('disnone'));
+
+document.addEventListener('click',(e) => {
+    console.log(e.target);
+    console.log(recentSearch.contains(e.target));
+    console.log(searchBar.contains(e.target));
+    if(!searchBar.contains(e.target) && !recentSearch.contains(e.target)){
+        recentSearch.classList.add('disnone');
+    }
+});
 searchBar.addEventListener('keydown', (e) => {
     if(e.key == 'Enter' && searchBar.value.length >= 2){
         getWeatherData(searchBar.value);
