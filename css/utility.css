@@ -38,6 +38,10 @@
     display: none;
 }
 
+.visible{
+    max-height: 480px;
+}
+
 .marBotm-30px {
     margin-bottom: 30px;
 }

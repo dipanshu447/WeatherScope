@@ -22,10 +22,16 @@ var updateWeatherData = (data) =>  {
     document.querySelector('.windSpeed h3').innerHTML = `${(data.wind.speed * 3.6).toFixed(2)}Km/h`;
     document.querySelector('.img-status img').src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
     document.querySelectorAll('.disnone').forEach(e => e.classList.remove('disnone'));
+    document.querySelector('.container').classList.add('visible');
 }
 var searchBar = document.querySelector('.searchbar input');
-searchBar.addEventListener('keydown', () => {
-    if(searchBar.value.length >= 2){
+searchBar.addEventListener('keydown', (e) => {
+    if(e.key == 'Enter' && searchBar.value.length >= 2){
         getWeatherData(searchBar.value);
     }
+    document.querySelector('.searchbar img:nth-of-type(2)').addEventListener('click',() => {
+        if(searchBar.value.length >= 2){
+            getWeatherData(searchBar.value);
+        }
+    })
 })
