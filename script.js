@@ -1,4 +1,20 @@
+var searchBar = document.querySelector('.searchbar input');
+var searchButton = document.querySelector('.searchbar img:nth-of-type(2)');
+var recentSearch = document.querySelector('.recent-search');
+
+// searchBar.addEventListener('focus',() => recentSearch.classList.remove('disnone'));
+
+// document.addEventListener('click',(e) => {
+//     console.log(e);
+//     console.log(recentSearch.contains(e.target));
+//     console.log(searchBar.contains(e.target));
+//     if(!searchBar.contains(e.target) && !recentSearch.contains(e.target)){
+//         recentSearch.classList.add('disnone');
+//     }
+// });
+
 async function getWeatherData(city) {
+    // recentSearch.classList.add('disnone');
     const url = `http://api.openweathermap.org/data/2.5/weather?appid=fdc55ecc7901d54bf227ce26bde77c52&units=metric&q=${city}`;
     try {
         let response = await fetch(url);
@@ -23,26 +39,28 @@ var updateWeatherData = (data) =>  {
     document.querySelector('.img-status img').src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
     document.querySelectorAll('.disnone').forEach(e => e.classList.remove('disnone'));
     document.querySelector('.container').classList.add('visible');
+    // recentSearch.classList.remove('disnone');
 }
-var searchBar = document.querySelector('.searchbar input');
-var recentSearch = document.querySelector('.recent-search');
-searchBar.addEventListener('click',() => recentSearch.classList.remove('disnone'));
 
-document.addEventListener('click',(e) => {
-    console.log(e.target);
-    console.log(recentSearch.contains(e.target));
-    console.log(searchBar.contains(e.target));
-    if(!searchBar.contains(e.target) && !recentSearch.contains(e.target)){
-        recentSearch.classList.add('disnone');
-    }
-});
-searchBar.addEventListener('keydown', (e) => {
-    if(e.key == 'Enter' && searchBar.value.length >= 2){
+function searchWeather(){
+    if(searchBar.value.length >= 2){
+        // recentSearch.classList.add('disnone');
         getWeatherData(searchBar.value);
     }
-    document.querySelector('.searchbar img:nth-of-type(2)').addEventListener('click',() => {
-        if(searchBar.value.length >= 2){
-            getWeatherData(searchBar.value);
-        }
-    })
+}
+
+searchBar.addEventListener('keydown', (e) => {
+    if(e.key == 'Enter'){
+        searchWeather();
+    }
 })
+
+searchButton.addEventListener('click',() => {
+    if(searchBar.value.length >= 2){
+        searchWeather();
+    }
+})
+
+function storeSearch(city) {
+
+}
