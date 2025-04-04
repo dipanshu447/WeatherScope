@@ -119,6 +119,10 @@ body {
     transform: scale(1.1);
 }
 
+.img-status, .status {
+    overflow: hidden;
+}
+
 .img-status img {
     margin-top: 10px;
     width: 200px;
@@ -133,6 +137,7 @@ body {
 .extraData {
     width: 100%;
     justify-content: space-around;
+    overflow: hidden;
 }
 
 .status p {

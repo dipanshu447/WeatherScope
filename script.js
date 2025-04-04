@@ -23,14 +23,14 @@ async function getWeatherData(city) {
     }
 }
 
-var updateWeatherData = (data) =>  {
+var updateWeatherData = async (data) =>  {
     document.querySelector('.status h1').innerHTML = `${Math.round(data.main.temp)}<sup>°C</sup>`;
     document.querySelector('.status p').innerText = data.weather[0].main;
     document.querySelector('.humidity h3').innerHTML = `${data.main.humidity}%`;
     document.querySelector('.windSpeed h3').innerHTML = `${(data.wind.speed * 3.6).toFixed(2)}Km/h`;
     document.querySelector('.img-status img').src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-    document.querySelectorAll('.disnone').forEach(e => e.classList.remove('disnone'));
     document.querySelector('.container').classList.add('visible');
+    document.querySelectorAll('.disnone').forEach(e => e.classList.remove('disnone'));
 }
 
 function searchWeather(){
