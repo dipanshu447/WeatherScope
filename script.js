@@ -3,6 +3,7 @@ var searchButton = document.querySelector('.searchbar img:nth-of-type(2)');
 var recentSearch = document.querySelector('#recent-search');
 
 window.onload = displayRecentSearches;
+document.querySelector('.userLocation button').addEventListener('click',() => getUserLocation());
 
 function showError(error) {
     let errorBox = document.createElement('div');
