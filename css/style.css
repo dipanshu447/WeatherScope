@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+    color: white;
 }
 
 body {
@@ -23,7 +24,6 @@ body {
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.212);
     padding: 25px;
-    color: white;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.459);
     transition: all 1s cubic-bezier(0.37, 0.46, 0, 1.04);
     max-height: 95px;
@@ -48,7 +48,6 @@ body {
     border-radius: 10px;
     background:none;
     border: 0;
-    color: white;
 }
 
 .searchbar {
@@ -79,7 +78,6 @@ body {
     padding: 5px 10px;
     background:none;
     border: 0;
-    color: white;
     cursor: pointer;
 }
 
@@ -147,4 +145,52 @@ body {
 .extraData .details {
     font-size: 13px;
     font-weight: 500;
+}
+
+.error-message {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.212);
+    border-radius: 10px;
+    font-size: 14px;
+    position: absolute;
+    top: 30px;
+    background-color: rgba(255, 0, 0, 0.2);
+    animation: fadeinOut 5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    text-transform: capitalize;
+}
+
+.error-message img:first-child{
+    width: 20px;
+}
+
+.error-message img{
+    width: 30px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+@keyframes fadeinOut {
+    0% {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+
+    30% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(20px);;
+    }
 }
