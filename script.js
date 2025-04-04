@@ -17,13 +17,22 @@ function showError(error) {
     setTimeout(() => errorBox.remove(), 7000);
 }
 
-async function getWeatherData(city) {
-    const url = `http://api.openweathermap.org/data/2.5/weather?appid=fdc55ecc7901d54bf227ce26bde77c52&units=metric&q=${city}`;
+async function getWeatherData(city=null, lat=null, long=null) {
+    let url;
+    if (lat && long) {
+        url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=fdc55ecc7901d54bf227ce26bde77c52&units=metric`;
+    }else if (city){
+        url = `http://api.openweathermap.org/data/2.5/weather?appid=fdc55ecc7901d54bf227ce26bde77c52&units=metric&q=${city}`
+    }else {
+        showError("Please Enter a valid location or enable location services.");
+        return;
+    }
+
     try {
         let response = await fetch(url);
         let data = await response.json();
 
-        if (data.cod === "404") {
+        if (data.cod !== 200) {
             showError(data.message);
             return;
         }
@@ -32,7 +41,8 @@ async function getWeatherData(city) {
         console.log("Humidity : " + data.main.humidity);
         console.log("Wind Speed : " + (data.wind.speed * 3.6).toFixed(2));
         console.log("Icon : " + data.weather[0].icon);
-        storeSearch(city);
+        if(city) storeSearch(city)
+        else storeSearch(data.name);
         displayRecentSearches();
         updateWeatherData(data);
         console.log(data);
@@ -55,6 +65,24 @@ var updateWeatherData = async (data) => {
 function searchWeather() {
     if (searchBar.value.length >= 2) {
         getWeatherData(searchBar.value);
+    }
+}
+
+function getUserLocation() {
+    if('geolocation' in navigator){
+        navigator.geolocation.getCurrentPosition((position) => {
+            let lat = position.coords.latitude;
+            let long = position.coords.longitude;
+            console.log(lat, long);
+            getWeatherData(null,lat,long);
+        },
+        (error) => {
+            showError("Location access denied. Please enter a city manually.");
+            console.log(error);
+        }
+    )
+    }else {
+        showError("Geolocation is not supported in this browser.")
     }
 }
 
