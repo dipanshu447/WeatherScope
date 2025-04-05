@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+    <title>WeatherScope</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/utility.css">
 </head>
 <body class="text-white">
+    <div class="head flex flex-column justify-center">
+        <h1 class="title">WeatherScope</h1>
+        <p class="subtitle">Live weather. Beautifully visualized.</p>
+    </div>
     <div class="container flex flex-column item-center space-between">
         <div class="searchbar flex flex-column">
             <div class="flex">
-                <img class="search invert img" src="https://img.icons8.com/?size=100&id=85149&format=png&color=000000" alt="location-icon">
+                <img class="search invert img" src="https://img.icons8.com/?size=100&id=85149&format=png&color=000000"
+                    alt="location-icon">
                 <input type="text" placeholder="Enter your location">
-                <img class="location invert img" src="https://img.icons8.com/?size=100&id=59878&format=png&color=000000" alt="search-icon">
+                <img class="location invert img" src="https://img.icons8.com/?size=100&id=59878&format=png&color=000000"
+                    alt="search-icon">
             </div>
             <div class="flex flex-column" id="recent-search">
             </div>
@@ -27,14 +33,16 @@
         </div>
         <div class="extraData flex disnone">
             <div class="humidity flex gap-2 item-center">
-                <img class="invert img" src="https://img.icons8.com/?size=100&id=79566&format=png&color=000000" alt="humidity-icon">
+                <img class="invert img" src="https://img.icons8.com/?size=100&id=79566&format=png&color=000000"
+                    alt="humidity-icon">
                 <div class="details flex flex-column">
                     <h3>88%</h3>
                     <p>Humidity</p>
                 </div>
             </div>
             <div class="windSpeed flex gap-2 item-center">
-                <img class="invert img" src="https://img.icons8.com/?size=100&id=wGscuXAAEzt4&format=png&color=000000" alt="windSpeed-icon">
+                <img class="invert img" src="https://img.icons8.com/?size=100&id=wGscuXAAEzt4&format=png&color=000000"
+                    alt="windSpeed-icon">
                 <div class="details flex flex-column">
                     <h3>1Km/h</h3>
                     <p>Wind Speed</p>
@@ -44,13 +52,17 @@
     </div>
     <div class="userLocation">
         <div class="tooltip">Use my location</div>
-        <button><img class="invert img" src="https://img.icons8.com/?size=100&id=60991&format=png&color=000000" alt="my-location"></button>
+        <button><img class="invert img" src="https://img.icons8.com/?size=100&id=60991&format=png&color=000000"
+                alt="my-location"></button>
     </div>
     <div class="userScreenshot">
         <div class="tooltip2">Take a screenshot</div>
-        <button><img class="invert img" src="https://img.icons8.com/?size=100&id=11772&format=png&color=000000" alt="my-screenshot"></button>
+        <button><img class="invert img" src="https://img.icons8.com/?size=100&id=11772&format=png&color=000000"
+                alt="my-screenshot"></button>
     </div>
     <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+        integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>

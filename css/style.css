@@ -10,18 +10,20 @@
 }
 
 :root {
-    --text-color : white;
+    --text-color: white;
 }
 
 body {
     width: 100vw;
     height: 100vh;
-    background-image: url(https://i.pinimg.com/originals/11/8f/1a/118f1aaea40193b3af9214cc45475f1d.gif); 
+    background-image: url(https://i.pinimg.com/originals/11/8f/1a/118f1aaea40193b3af9214cc45475f1d.gif);
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 105px;
 }
 
 .container {
@@ -51,7 +53,7 @@ body {
     padding: 10px 36px;
     width: 100%;
     border-radius: 10px;
-    background:none;
+    background: none;
     border: 0;
 }
 
@@ -76,17 +78,17 @@ body {
     width: 6%;
 }
 
-#recent-search button{
+#recent-search button {
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 5px 10px;
-    background:none;
+    background: none;
     border: 0;
     cursor: pointer;
 }
 
-#recent-search button:hover{
+#recent-search button:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -94,27 +96,27 @@ body {
     outline: 0;
 }
 
-.searchbar .search{
+.searchbar .search {
     position: absolute;
-    top:10px;
+    top: 10px;
     left: 10px;
     width: 20px;
 }
 
-.searchbar .location{
+.searchbar .location {
     position: absolute;
-    top:10px;
+    top: 10px;
     right: 10px;
     width: 19px;
     cursor: pointer;
     transition: all 1s cubic-bezier(0, 0.63, 0.42, 1.39);
 }
 
-#recent-search{
+#recent-search {
     visibility: hidden;
 }
 
-.searchbar:focus-within #recent-search{
+.searchbar:focus-within #recent-search {
     visibility: visible;
 }
 
@@ -122,7 +124,8 @@ body {
     transform: scale(1.1);
 }
 
-.img-status, .status {
+.img-status,
+.status {
     overflow: hidden;
 }
 
@@ -131,9 +134,9 @@ body {
     width: 200px;
     image-rendering: -webkit-optimize-contrast;
     filter: contrast(130%) brightness(105%) drop-shadow(1px 1px 8px #3d3d3dab);
-} 
+}
 
-.extraData img{
+.extraData img {
     width: 100%;
     object-fit: contain;
 }
@@ -182,11 +185,11 @@ body {
     text-transform: capitalize;
 }
 
-.error-message img:first-child{
+.error-message img:first-child {
     width: 20px;
 }
 
-.error-message img{
+.error-message img {
     width: 30px;
     margin-left: 5px;
     cursor: pointer;
@@ -210,11 +213,12 @@ body {
 
     100% {
         opacity: 0;
-        transform: translateY(20px);;
+        transform: translateY(20px);
+        ;
     }
 }
 
-.userLocation button{
+.userLocation button {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -229,11 +233,11 @@ body {
     cursor: pointer;
 }
 
-.userLocation button:hover{
+.userLocation button:hover {
     background-color: rgba(255, 255, 255, 0.171);
 }
 
-.userLocation button img{
+.userLocation button img {
     width: 20px;
 }
 
@@ -250,11 +254,11 @@ body {
     transition: all 1s ease-in-out 0.5s;
 }
 
-.userLocation:hover .tooltip{
+.userLocation:hover .tooltip {
     opacity: 1;
 }
 
-.userScreenshot button{
+.userScreenshot button {
     position: absolute;
     bottom: 15px;
     right: 15px;
@@ -269,11 +273,11 @@ body {
     cursor: pointer;
 }
 
-.userScreenshot button:hover{
+.userScreenshot button:hover {
     background-color: rgba(255, 255, 255, 0.171);
 }
 
-.userScreenshot button img{
+.userScreenshot button img {
     width: 20px;
 }
 
@@ -290,7 +294,7 @@ body {
     transition: all 1s ease-in-out 0.5s;
 }
 
-.userScreenshot:hover .tooltip2{
+.userScreenshot:hover .tooltip2 {
     opacity: 1;
 }
 
@@ -298,18 +302,49 @@ body {
     transition: filter 2s ease-in-out;
 }
 
-@media only screen and (max-width:470px){
+.title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    margin-bottom: 0.3em;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+
+@media only screen and (max-width:470px) {
     .error-message {
         width: 90%;
         font-size: 12px;
     }
 
-    .error-message img:first-child{
+    .error-message img:first-child {
         width: 15px;
     }
-    
-    .error-message img{
+
+    .error-message img {
         width: 25px;
         margin-left: 3px;
     }
+
+    body {
+        gap: 100px;
+    }
+
+    .title {
+        font-size: 1.8rem;
+        margin-bottom: 0.2em;
+    }
+    
+    .subtitle {
+        font-size: 0.95rem;
+    }
+    
 }
