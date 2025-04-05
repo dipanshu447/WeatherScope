@@ -130,7 +130,7 @@ body {
     margin-top: 10px;
     width: 200px;
     image-rendering: -webkit-optimize-contrast;
-    filter: contrast(130%) brightness(105%)
+    filter: contrast(130%) brightness(105%) drop-shadow(1px 1px 8px #3d3d3dab);
 } 
 
 .extraData img{
