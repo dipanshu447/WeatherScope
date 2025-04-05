@@ -25,9 +25,9 @@ function showError(error) {
 async function getWeatherData(city = null, lat = null, long = null) {
     let url;
     if (lat && long) {
-        url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=fdc55ecc7901d54bf227ce26bde77c52&units=metric`;
+        url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_KEY}&units=metric`;
     } else if (city) {
-        url = `http://api.openweathermap.org/data/2.5/weather?appid=fdc55ecc7901d54bf227ce26bde77c52&units=metric&q=${city}`
+        url = `http://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}&units=metric&q=${city}`
     } else {
         showError("Please Enter a valid location or enable location services.");
         return;
