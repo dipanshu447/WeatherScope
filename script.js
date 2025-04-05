@@ -1,7 +1,7 @@
 var searchBar = document.querySelector('.searchbar input');
 var searchButton = document.querySelector('.searchbar img:nth-of-type(2)');
 var recentSearch = document.querySelector('#recent-search');
-
+var City;
 window.onload = displayRecentSearches;
 document.querySelector('.userLocation button').addEventListener('click', () => getUserLocation());
 
@@ -46,6 +46,7 @@ async function getWeatherData(city = null, lat = null, long = null) {
         console.log("Humidity : " + data.main.humidity);
         console.log("Wind Speed : " + (data.wind.speed * 3.6).toFixed(2));
         console.log("Icon : " + data.weather[0].icon);
+        City = data.name;
         if (city) storeSearch(city)
         else storeSearch(data.name);
         weatherBgchange(data.weather[0].main, Math.round(data.main.temp));
@@ -205,3 +206,18 @@ function weatherBgchange(status, temp) {
     document.body.style.transition = "background-image 2s ease-in-out";
     document.body.style.backgroundImage = backgroundUrl;
 }
+
+let color = ['cadetblue','burlywood','chocolate','coral','tomato','teal','steelblue','slateblue','sienna','seagreen','salmon','royalblue','rebeccapurple'];
+let rand = Math.floor(Math.random() * 13);
+document.querySelector('.userScreenshot button').addEventListener('click', () => {
+    html2canvas(document.querySelector('.container'), {
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: color[rand]
+    }).then((canvas) => {
+        const link = document.createElement('a');
+        link.download = `${City}-weather-screenshot.png`;
+        link.href = canvas.toDataURL();
+        link.click();
+    }).catch((err) => showError(err));
+});

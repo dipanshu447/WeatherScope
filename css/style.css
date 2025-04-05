@@ -254,6 +254,46 @@ body {
     opacity: 1;
 }
 
+.userScreenshot button{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: none;
+    gap: 5px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.212);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.userScreenshot button:hover{
+    background-color: rgba(255, 255, 255, 0.171);
+}
+
+.userScreenshot button img{
+    width: 20px;
+}
+
+.tooltip2 {
+    position: absolute;
+    padding: 3px 8px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.212);
+    border-radius: 10px;
+    bottom: 25px;
+    right: 65px;
+    font-size: 13px;
+    opacity: 0;
+    transition: all 1s ease-in-out 0.5s;
+}
+
+.userScreenshot:hover .tooltip2{
+    opacity: 1;
+}
+
 .img {
     transition: filter 2s ease-in-out;
 }
