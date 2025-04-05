@@ -108,7 +108,7 @@ function displayRecentSearches() {
     let searches = JSON.parse(localStorage.getItem('recentSearches')) || [];
     let imgsrc;
     if (searches.length === 0) {
-        searches = ['Mumbai', 'Banglore', 'New york', 'Spain'];
+        searches = ['Mumbai', 'Bangalore', 'New york', 'Spain'];
         imgsrc = 'https://img.icons8.com/?size=100&id=73828&format=png&color=9C9C9C';
     } else {
         imgsrc = 'https://img.icons8.com/?size=100&id=82767&format=png&color=9C9C9C';
@@ -154,7 +154,7 @@ function weatherBgchange(status) {
             break;
         case 'clouds':
             backgroundUrl = 'url(https://i.pinimg.com/originals/f8/42/6b/f8426bf4f6892dfed16b2e0f583d5670.gif)'; // cloudy
-            isDarkbg = false;
+            isDarkbg = true;
             break;
         case 'rain':
             backgroundUrl = 'url(https://i.pinimg.com/originals/f0/d1/65/f0d16561ae98574833c1b62433277788.gif)'; // rainy

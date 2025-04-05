@@ -134,13 +134,26 @@ body {
 } 
 
 .extraData img{
-    width: 30px;
+    width: 100%;
+    object-fit: contain;
+}
+
+.humidity {
+    width: 10%;
+}
+
+.windSpeed {
+    width: 10%;
+}
+
+.windSpeed p {
+    font-size: 12px;
 }
 
 .extraData {
     width: 100%;
-    justify-content: space-around;
     overflow: hidden;
+    gap: 140px;
 }
 
 .status p {
@@ -243,4 +256,20 @@ body {
 
 .img {
     transition: filter 2s ease-in-out;
+}
+
+@media only screen and (max-width:470px){
+    .error-message {
+        width: 90%;
+        font-size: 12px;
+    }
+
+    .error-message img:first-child{
+        width: 15px;
+    }
+    
+    .error-message img{
+        width: 25px;
+        margin-left: 3px;
+    }
 }
