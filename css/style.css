@@ -5,13 +5,18 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
-    color: white;
+    color: var(--text-color);
+    transition: color 2s ease-in-out;
+}
+
+:root {
+    --text-color : white;
 }
 
 body {
     width: 100vw;
     height: 100vh;
-    background-image: url(https://i.pinimg.com/1200x/d8/cc/bb/d8ccbbe2e1d9241df5287a43321c9074.jpg);
+    background-image: url(https://i.pinimg.com/originals/11/8f/1a/118f1aaea40193b3af9214cc45475f1d.gif); 
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -139,6 +144,7 @@ body {
 }
 
 .status p {
+    text-transform: capitalize;
     font-weight: 700;
 }
 
@@ -233,4 +239,8 @@ body {
 
 .userLocation:hover .tooltip{
     opacity: 1;
+}
+
+.img {
+    transition: filter 2s ease-in-out;
 }

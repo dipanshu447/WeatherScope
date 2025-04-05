@@ -45,3 +45,11 @@
 .marBotm-30px {
     margin-bottom: 30px;
 }
+
+body.text-white {
+    --text-color : white;
+}
+
+body.text-black {
+    --text-color : black;
+}

@@ -3,28 +3,32 @@ var searchButton = document.querySelector('.searchbar img:nth-of-type(2)');
 var recentSearch = document.querySelector('#recent-search');
 
 window.onload = displayRecentSearches;
-document.querySelector('.userLocation button').addEventListener('click',() => getUserLocation());
+document.querySelector('.userLocation button').addEventListener('click', () => getUserLocation());
 
 function showError(error) {
     let errorBox = document.createElement('div');
     errorBox.classList = 'error-message';
+
+    let isDark = document.body.classList.contains('text-black');
+    let theme = !isDark ? "invert" : '';
+
     errorBox.innerHTML = `<div class="flex gap-2 item-center justify-center">
-            <img src="https://img.icons8.com/?size=100&id=7JSM2OfYelRz&format=png&color=ffffff" alt="error-image">
+            <img class="${theme}" src="https://img.icons8.com/?size=100&id=7JSM2OfYelRz&format=png&color=000000" alt="error-image">
             ${error}
         </div>
-        <img src="https://img.icons8.com/?size=100&id=6483&format=png&color=ffffff" alt="cross">`;
+        <img class="${theme}" src="https://img.icons8.com/?size=100&id=6483&format=png&color=000000" alt="cross">`;
     document.body.appendChild(errorBox);
     errorBox.querySelectorAll('img')[1].addEventListener('click', () => errorBox.remove());
     setTimeout(() => errorBox.remove(), 7000);
 }
 
-async function getWeatherData(city=null, lat=null, long=null) {
+async function getWeatherData(city = null, lat = null, long = null) {
     let url;
     if (lat && long) {
         url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=fdc55ecc7901d54bf227ce26bde77c52&units=metric`;
-    }else if (city){
+    } else if (city) {
         url = `http://api.openweathermap.org/data/2.5/weather?appid=fdc55ecc7901d54bf227ce26bde77c52&units=metric&q=${city}`
-    }else {
+    } else {
         showError("Please Enter a valid location or enable location services.");
         return;
     }
@@ -42,8 +46,9 @@ async function getWeatherData(city=null, lat=null, long=null) {
         console.log("Humidity : " + data.main.humidity);
         console.log("Wind Speed : " + (data.wind.speed * 3.6).toFixed(2));
         console.log("Icon : " + data.weather[0].icon);
-        if(city) storeSearch(city)
+        if (city) storeSearch(city)
         else storeSearch(data.name);
+        weatherBgchange(data.weather[0].main);
         displayRecentSearches();
         updateWeatherData(data);
         console.log(data);
@@ -55,7 +60,7 @@ async function getWeatherData(city=null, lat=null, long=null) {
 
 var updateWeatherData = async (data) => {
     document.querySelector('.status h1').innerHTML = `${Math.round(data.main.temp)}<sup>°C</sup>`;
-    document.querySelector('.status p').innerText = data.weather[0].main;
+    document.querySelector('.status p').innerText = data.weather[0].description;
     document.querySelector('.humidity h3').innerHTML = `${data.main.humidity}%`;
     document.querySelector('.windSpeed h3').innerHTML = `${(data.wind.speed * 3.6).toFixed(2)}Km/h`;
     document.querySelector('.img-status img').src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
@@ -70,19 +75,19 @@ function searchWeather() {
 }
 
 function getUserLocation() {
-    if('geolocation' in navigator){
+    if ('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition((position) => {
             let lat = position.coords.latitude;
             let long = position.coords.longitude;
             console.log(lat, long);
-            getWeatherData(null,lat,long);
+            getWeatherData(null, lat, long);
         },
-        (error) => {
-            showError("Location access denied. Please enter a city manually.");
-            console.log(error);
-        }
-    )
-    }else {
+            (error) => {
+                showError("Location access denied. Please enter a city manually.");
+                console.log(error);
+            }
+        )
+    } else {
         showError("Geolocation is not supported in this browser.")
     }
 }
@@ -136,4 +141,62 @@ function storeSearch(city) {
     }
 
     localStorage.setItem('recentSearches', JSON.stringify(searches));
+}
+
+function weatherBgchange(status) {
+    let backgroundUrl;
+    let isDarkbg;
+
+    switch (status.toLowerCase()) {
+        case 'clear':
+            backgroundUrl = 'url(https://i.pinimg.com/originals/4e/47/2a/4e472a4090810eeebea95c9be17948f7.gif)'; // sunny
+            isDarkbg = true;
+            break;
+        case 'clouds':
+            backgroundUrl = 'url(https://i.pinimg.com/originals/f8/42/6b/f8426bf4f6892dfed16b2e0f583d5670.gif)'; // cloudy
+            isDarkbg = false;
+            break;
+        case 'rain':
+            backgroundUrl = 'url(https://i.pinimg.com/originals/f0/d1/65/f0d16561ae98574833c1b62433277788.gif)'; // rainy
+            isDarkbg = false;
+            break;
+        case 'snow':
+            backgroundUrl = 'url(https://i.pinimg.com/originals/9c/55/8a/9c558abfe06c96699b520d566618b7f3.gif)'; // snowy
+            isDarkbg = false;
+            break;
+        case 'haze':
+            backgroundUrl = 'url(https://i.pinimg.com/originals/d0/f9/c6/d0f9c6c13e9c0f178d939f8506bed661.gif)'; // haze
+            isDarkbg = true;
+            break;
+        case 'mist':
+        case 'fog':
+            backgroundUrl = 'url(https://i.pinimg.com/originals/b0/17/24/b01724a551bf9857b47295cf22c639fc.gif)'; // mist
+            isDarkbg = true;
+            break;
+        case 'thunderstorm':
+            backgroundUrl = 'url(https://i.pinimg.com/originals/c5/25/08/c52508e40597320d69efce6d9dfc9a41.gif)'; // stormy
+            isDarkbg = false;
+            break;
+        case 'drizzle':
+            backgroundUrl = 'url(https://i.pinimg.com/originals/d7/bb/cd/d7bbcd0b7f309f88687c99579eea9310.gif)'; // drizzle
+            isDarkbg = false;
+            break;
+        default:
+            backgroundUrl = 'url(https://i.pinimg.com/originals/11/8f/1a/118f1aaea40193b3af9214cc45475f1d.gif)'; // default bg
+            isDarkbg = false;
+            break;
+    }
+
+    if (isDarkbg) {
+        document.querySelectorAll('.img').forEach(e => e.classList.remove('invert'));
+        document.body.classList.remove('text-white');
+        document.body.classList.add('text-black')
+    } else {
+        document.querySelectorAll('.img').forEach(e => e.classList.add('invert'));
+        document.body.classList.remove('text-black');
+        document.body.classList.add('text-white');
+    }
+
+    document.body.style.transition = "background-image 2s ease-in-out";
+    document.body.style.backgroundImage = backgroundUrl;
 }
