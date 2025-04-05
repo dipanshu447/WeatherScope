@@ -48,7 +48,7 @@ async function getWeatherData(city = null, lat = null, long = null) {
         console.log("Icon : " + data.weather[0].icon);
         if (city) storeSearch(city)
         else storeSearch(data.name);
-        weatherBgchange(data.weather[0].main);
+        weatherBgchange(data.weather[0].main, Math.round(data.main.temp));
         displayRecentSearches();
         updateWeatherData(data);
         console.log(data);
@@ -143,48 +143,53 @@ function storeSearch(city) {
     localStorage.setItem('recentSearches', JSON.stringify(searches));
 }
 
-function weatherBgchange(status) {
+function weatherBgchange(status, temp) {
     let backgroundUrl;
     let isDarkbg;
 
-    switch (status.toLowerCase()) {
-        case 'clear':
-            backgroundUrl = 'url(https://i.pinimg.com/originals/4e/47/2a/4e472a4090810eeebea95c9be17948f7.gif)'; // sunny
-            isDarkbg = true;
-            break;
-        case 'clouds':
-            backgroundUrl = 'url(https://i.pinimg.com/originals/f8/42/6b/f8426bf4f6892dfed16b2e0f583d5670.gif)'; // cloudy
-            isDarkbg = true;
-            break;
-        case 'rain':
-            backgroundUrl = 'url(https://i.pinimg.com/originals/f0/d1/65/f0d16561ae98574833c1b62433277788.gif)'; // rainy
-            isDarkbg = false;
-            break;
-        case 'snow':
-            backgroundUrl = 'url(https://i.pinimg.com/originals/9c/55/8a/9c558abfe06c96699b520d566618b7f3.gif)'; // snowy
-            isDarkbg = false;
-            break;
-        case 'haze':
-            backgroundUrl = 'url(https://i.pinimg.com/originals/d0/f9/c6/d0f9c6c13e9c0f178d939f8506bed661.gif)'; // haze
-            isDarkbg = true;
-            break;
-        case 'mist':
-        case 'fog':
-            backgroundUrl = 'url(https://i.pinimg.com/originals/b0/17/24/b01724a551bf9857b47295cf22c639fc.gif)'; // mist
-            isDarkbg = true;
-            break;
-        case 'thunderstorm':
-            backgroundUrl = 'url(https://i.pinimg.com/originals/c5/25/08/c52508e40597320d69efce6d9dfc9a41.gif)'; // stormy
-            isDarkbg = false;
-            break;
-        case 'drizzle':
-            backgroundUrl = 'url(https://i.pinimg.com/originals/d7/bb/cd/d7bbcd0b7f309f88687c99579eea9310.gif)'; // drizzle
-            isDarkbg = false;
-            break;
-        default:
-            backgroundUrl = 'url(https://i.pinimg.com/originals/11/8f/1a/118f1aaea40193b3af9214cc45475f1d.gif)'; // default bg
-            isDarkbg = false;
-            break;
+    if (temp <= 0) {
+        backgroundUrl = 'url(https://i.pinimg.com/originals/9c/55/8a/9c558abfe06c96699b520d566618b7f3.gif)'; // snowy
+        isDarkbg = false;
+    } else {
+        switch (status.toLowerCase()) {
+            case 'clear':
+                backgroundUrl = 'url(https://i.pinimg.com/originals/4e/47/2a/4e472a4090810eeebea95c9be17948f7.gif)'; // sunny
+                isDarkbg = true;
+                break;
+            case 'clouds':
+                backgroundUrl = 'url(https://i.pinimg.com/originals/f8/42/6b/f8426bf4f6892dfed16b2e0f583d5670.gif)'; // cloudy
+                isDarkbg = true;
+                break;
+            case 'rain':
+                backgroundUrl = 'url(https://i.pinimg.com/originals/f0/d1/65/f0d16561ae98574833c1b62433277788.gif)'; // rainy
+                isDarkbg = false;
+                break;
+            case 'snow':
+                backgroundUrl = 'url(https://i.pinimg.com/originals/9c/55/8a/9c558abfe06c96699b520d566618b7f3.gif)'; // snowy
+                isDarkbg = false;
+                break;
+            case 'haze':
+                backgroundUrl = 'url(https://i.pinimg.com/originals/d0/f9/c6/d0f9c6c13e9c0f178d939f8506bed661.gif)'; // haze
+                isDarkbg = true;
+                break;
+            case 'mist':
+            case 'fog':
+                backgroundUrl = 'url(https://i.pinimg.com/originals/b0/17/24/b01724a551bf9857b47295cf22c639fc.gif)'; // mist
+                isDarkbg = true;
+                break;
+            case 'thunderstorm':
+                backgroundUrl = 'url(https://i.pinimg.com/originals/c5/25/08/c52508e40597320d69efce6d9dfc9a41.gif)'; // stormy
+                isDarkbg = false;
+                break;
+            case 'drizzle':
+                backgroundUrl = 'url(https://i.pinimg.com/originals/d7/bb/cd/d7bbcd0b7f309f88687c99579eea9310.gif)'; // drizzle
+                isDarkbg = false;
+                break;
+            default:
+                backgroundUrl = 'url(https://i.pinimg.com/originals/11/8f/1a/118f1aaea40193b3af9214cc45475f1d.gif)'; // default bg
+                isDarkbg = false;
+                break;
+        }
     }
 
     if (isDarkbg) {
