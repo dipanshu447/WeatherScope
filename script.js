@@ -25,7 +25,7 @@ function showError(error) {
 function showmessege(message) {
     let errorBox = document.createElement('div');
     errorBox.classList = 'error-message';
-    errorBox.setAttribute('id','message');
+    errorBox.setAttribute('id', 'message');
 
     let isDark = document.body.classList.contains('text-black');
     let theme = !isDark ? "invert" : '';
@@ -42,20 +42,20 @@ function showmessege(message) {
 let a = 0;
 async function getWeatherData(city = null, lat = null, long = null) {
     const apiKey = 'fdc55ecc7901d54bf227ce26bde77c52';
-    if (a == 0){
+    if (a == 0) {
         setTimeout(() => {
             document.querySelector('.head').remove();
-            document.body.setAttribute('id','gap-0');
+            document.body.setAttribute('id', 'gap-0');
             a++;
-        },1200)
+        }, 1200)
     }
     let url;
     if (lat && long) {
-        url = `api/weather.js?lat=${lat}&lon=${long}&units=metric`;
-        // url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+        // url = `api/weather.js?lat=${lat}&lon=${long}&units=metric`;
+        url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
     } else if (city) {
-        url = `api/weather.js?units=metric&city=${city}`;
-        // url = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&units=metric&q=${city}`;
+        // url = `api/weather.js?units=metric&city=${city}`;
+        url = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&units=metric&q=${city}`;
     } else {
         showError("Please Enter a valid location or enable location services.");
         return;
@@ -177,16 +177,16 @@ function weatherBgchange(status, temp) {
     let isDarkbg;
 
     if (temp <= 0) {
-        backgroundUrl = 'url(https://i.pinimg.com/originals/9c/55/8a/9c558abfe06c96699b520d566618b7f3.gif)'; // snowy
+        backgroundUrl = 'url(https://i.pinimg.com/1200x/ab/d3/3e/abd33e0c9c6ca92d42a5532ad5ceff35.jpg)'; // snowy
         isDarkbg = false;
     } else {
         switch (status.toLowerCase()) {
             case 'clear':
-                backgroundUrl = 'url(https://i.pinimg.com/originals/4e/47/2a/4e472a4090810eeebea95c9be17948f7.gif)'; // sunny
-                isDarkbg = true;
+                backgroundUrl = 'url(https://i.pinimg.com/1200x/8f/65/63/8f6563a9d339ed641b026cb444d1fe3d.jpg)'; // sunny
+                isDarkbg = false;
                 break;
             case 'clouds':
-                backgroundUrl = 'url(https://i.pinimg.com/originals/f8/42/6b/f8426bf4f6892dfed16b2e0f583d5670.gif)'; // cloudy
+                backgroundUrl = 'url(https://i.pinimg.com/1200x/54/17/a3/5417a3d0893e0138d03d8060dc73d1da.jpg)'; // cloudy
                 isDarkbg = true;
                 break;
             case 'rain':
@@ -194,20 +194,20 @@ function weatherBgchange(status, temp) {
                 isDarkbg = false;
                 break;
             case 'snow':
-                backgroundUrl = 'url(https://i.pinimg.com/originals/9c/55/8a/9c558abfe06c96699b520d566618b7f3.gif)'; // snowy
+                backgroundUrl = 'url(https://i.pinimg.com/1200x/ab/d3/3e/abd33e0c9c6ca92d42a5532ad5ceff35.jpg)'; // snowy
                 isDarkbg = false;
                 break;
             case 'haze':
-                backgroundUrl = 'url(https://i.pinimg.com/originals/d0/f9/c6/d0f9c6c13e9c0f178d939f8506bed661.gif)'; // haze
+                backgroundUrl = 'url(https://i.pinimg.com/1200x/f1/25/56/f125566a8d917386c638490506bf84fe.jpg)'; // haze
                 isDarkbg = true;
                 break;
             case 'mist':
             case 'fog':
-                backgroundUrl = 'url(https://i.pinimg.com/originals/b0/17/24/b01724a551bf9857b47295cf22c639fc.gif)'; // mist
-                isDarkbg = true;
+                backgroundUrl = 'url(https://i.pinimg.com/1200x/b4/90/84/b49084326fea65dfc47d97f115d3d842.jpg)'; // mist
+                isDarkbg = false;
                 break;
             case 'thunderstorm':
-                backgroundUrl = 'url(https://i.pinimg.com/originals/c5/25/08/c52508e40597320d69efce6d9dfc9a41.gif)'; // stormy
+                backgroundUrl = 'url(https://i.pinimg.com/1200x/07/0c/93/070c93d305c338c7619acecd15dd8977.jpg)'; // stormy
                 isDarkbg = false;
                 break;
             case 'drizzle':
@@ -236,7 +236,7 @@ function weatherBgchange(status, temp) {
 }
 
 const capture = new Audio('assets/capture-sound.mp3');
-let color = ['cadetblue','burlywood','chocolate','coral','tomato','teal','steelblue','slateblue','sienna','seagreen','salmon','royalblue','rebeccapurple'];
+let color = ['cadetblue', 'burlywood', 'chocolate', 'coral', 'tomato', 'teal', 'steelblue', 'slateblue', 'sienna', 'seagreen', 'salmon', 'royalblue', 'rebeccapurple'];
 let rand = Math.floor(Math.random() * 13);
 document.querySelector('.userScreenshot button').addEventListener('click', () => {
     showmessege("Please wait a moment while we generate your weather screenshot...");
