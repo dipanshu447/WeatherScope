@@ -25,9 +25,9 @@ function showError(error) {
 async function getWeatherData(city = null, lat = null, long = null) {
     let url;
     if (lat && long) {
-        url = `.api/weather.js/weather?lat=${lat}&lon=${long}&units=metric`;
+        url = `api/weather.js?lat=${lat}&lon=${long}&units=metric`;
     } else if (city) {
-        url = `.api/weather.js/weather?units=metric&q=${city}`;
+        url = `api/weather.js?units=metric&q=${city}`;
     } else {
         showError("Please Enter a valid location or enable location services.");
         return;
