@@ -3,7 +3,7 @@ export default async function handler(req, res) {
     const apiKey = process.env.WEATHER_API_KEY;
 
     let apiURL = '';
-    if (lat && long) {
+    if (lat && lon) {
         apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
     } else if (city) {
         apiURL = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&units=metric&q=${city}`
