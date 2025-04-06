@@ -127,7 +127,7 @@ function displayRecentSearches() {
     let searches = JSON.parse(localStorage.getItem('recentSearches')) || [];
     let imgsrc;
     if (searches.length === 0) {
-        searches = ['Mumbai', 'Bangalore', 'New york', 'Spain'];
+        searches = ['Mumbai', 'Delhi', 'Kolkata', 'Bengaluru'];
         imgsrc = 'https://img.icons8.com/?size=100&id=73828&format=png&color=9C9C9C';
     } else {
         imgsrc = 'https://img.icons8.com/?size=100&id=82767&format=png&color=9C9C9C';
