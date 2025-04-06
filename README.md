@@ -59,7 +59,7 @@ This project gave me a lot of new hands-on experience, and a deeper understandin
 1. Clone the Repository : 
 
     ```bash 
-    git clone https://github.com/your-username/weather-app.git
+    git clone https://github.com/dipanshu447/WeatherScope.git
     ```
 2. Navigate into the Project Directory:
     ```bash 
