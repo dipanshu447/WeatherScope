@@ -52,10 +52,8 @@ async function getWeatherData(city = null, lat = null, long = null) {
     let url;
     if (lat && long) {
         url = `api/weather.js?lat=${lat}&lon=${long}&units=metric`;
-        // url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
     } else if (city) {
         url = `api/weather.js?units=metric&city=${city}`;
-        // url = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&units=metric&q=${city}`;
     } else {
         showError("Please Enter a valid location or enable location services.");
         return;
