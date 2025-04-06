@@ -1,4 +1,4 @@
-# 🌦️ Weather App
+# 🌦️ WeatherScope
 
 A beautiful, responsive Weather App built using **HTML**, **CSS**, and **JavaScript**, powered by the **OpenWeatherMap API** and deployed securely using **Vercel**. This project fetches real-time weather data based on user location or city search, displays relevant information with dynamic visuals, and even allows users to capture a screenshot of the current weather UI.
 
