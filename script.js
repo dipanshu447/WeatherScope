@@ -44,7 +44,7 @@ async function getWeatherData(city = null, lat = null, long = null) {
     setTimeout(() => {
         document.querySelector('.head').classList.add('disnone');
         document.body.setAttribute('id','gap-0');
-    },2000)
+    },1500)
     let url;
     if (lat && long) {
         url = `api/weather.js?lat=${lat}&lon=${long}&units=metric`;
