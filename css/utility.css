@@ -57,3 +57,7 @@ body.text-white {
 body.text-black {
     --text-color : black;
 }
+
+#gap-0 {
+    gap: 0;
+}

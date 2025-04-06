@@ -114,6 +114,10 @@ function getUserLocation() {
 searchBar.addEventListener('keydown', (e) => {
     if (e.key == 'Enter') {
         searchWeather();
+        setTimeout(() => {
+            document.querySelector('.head').classList.add('disnone');
+            document.body.setAttribute('id','gap-0');
+        },2000)
     }
 })
 
