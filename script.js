@@ -41,7 +41,6 @@ function showmessege(message) {
 }
 let a = 0;
 async function getWeatherData(city = null, lat = null, long = null) {
-    const apiKey = 'fdc55ecc7901d54bf227ce26bde77c52';
     if (a == 0) {
         setTimeout(() => {
             document.querySelector('.head').remove();
@@ -67,18 +66,12 @@ async function getWeatherData(city = null, lat = null, long = null) {
             showError(data.message);
             return;
         }
-        console.log('Temprature : ' + Math.round(data.main.temp));
-        console.log("Description : " + data.weather[0].main);
-        console.log("Humidity : " + data.main.humidity);
-        console.log("Wind Speed : " + (data.wind.speed * 3.6).toFixed(2));
-        console.log("Icon : " + data.weather[0].icon);
         City = data.name;
         if (city) storeSearch(city)
         else storeSearch(data.name);
         weatherBgchange(data.weather[0].main, Math.round(data.main.temp));
         displayRecentSearches();
         updateWeatherData(data);
-        console.log(data);
     } catch (error) {
         showError("Failed to fetch data. Check your internet connection.");
         console.log(error);
