@@ -185,6 +185,10 @@ body {
     text-transform: capitalize;
 }
 
+#message {
+    background-color: rgba(0, 68, 255, 0.2);
+}
+
 .error-message img:first-child {
     width: 20px;
 }

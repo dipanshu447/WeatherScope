@@ -22,6 +22,24 @@ function showError(error) {
     setTimeout(() => errorBox.remove(), 7000);
 }
 
+function showmessege(message) {
+    let errorBox = document.createElement('div');
+    errorBox.classList = 'error-message';
+    errorBox.setAttribute('id','message');
+
+    let isDark = document.body.classList.contains('text-black');
+    let theme = !isDark ? "invert" : '';
+
+    errorBox.innerHTML = `<div class="flex gap-2 item-center justify-center">
+            <img class="${theme}" src="https://img.icons8.com/?size=100&id=113776&format=png&color=000000" alt="loading-image">
+            ${message}
+        </div>
+        <img class="${theme}" src="https://img.icons8.com/?size=100&id=6483&format=png&color=000000" alt="cross">`;
+    document.body.appendChild(errorBox);
+    errorBox.querySelectorAll('img')[1].addEventListener('click', () => errorBox.remove());
+    setTimeout(() => errorBox.remove(), 7000);
+}
+
 async function getWeatherData(city = null, lat = null, long = null) {
     let url;
     if (lat && long) {
@@ -210,6 +228,7 @@ function weatherBgchange(status, temp) {
 let color = ['cadetblue','burlywood','chocolate','coral','tomato','teal','steelblue','slateblue','sienna','seagreen','salmon','royalblue','rebeccapurple'];
 let rand = Math.floor(Math.random() * 13);
 document.querySelector('.userScreenshot button').addEventListener('click', () => {
+    showmessege("Please wait a moment while we generate your weather screenshot...");
     html2canvas(document.querySelector('.container'), {
         useCORS: true,
         allowTaint: true,
