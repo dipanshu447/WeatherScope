@@ -27,7 +27,7 @@ async function getWeatherData(city = null, lat = null, long = null) {
     if (lat && long) {
         url = `api/weather.js?lat=${lat}&lon=${long}&units=metric`;
     } else if (city) {
-        url = `api/weather.js?units=metric&q=${city}`;
+        url = `api/weather.js?units=metric&city=${city}`;
     } else {
         showError("Please Enter a valid location or enable location services.");
         return;
