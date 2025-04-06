@@ -43,7 +43,7 @@ let a = 0;
 async function getWeatherData(city = null, lat = null, long = null) {
     if (a == 0){
         setTimeout(() => {
-            document.querySelector('.head').classList.add('disnone');
+            document.querySelector('.head').remove();
             document.body.setAttribute('id','gap-0');
             a++;
         },1200)
