@@ -356,4 +356,16 @@ body {
     .subtitle {
         font-size: 0.95rem;
     }
+
+    .container {
+        width: 330px;
+    }
+
+    .humidity h3,.windSpeed h3 {
+        font-size: 12px;
+    }
+
+    .humidity p,.windSpeed p {
+        font-size: 11px;
+    }
 }
