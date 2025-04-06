@@ -225,6 +225,7 @@ function weatherBgchange(status, temp) {
     document.body.style.backgroundImage = backgroundUrl;
 }
 
+const capture = new Audio('assets/capture-sound.mp3');
 let color = ['cadetblue','burlywood','chocolate','coral','tomato','teal','steelblue','slateblue','sienna','seagreen','salmon','royalblue','rebeccapurple'];
 let rand = Math.floor(Math.random() * 13);
 document.querySelector('.userScreenshot button').addEventListener('click', () => {
@@ -238,5 +239,7 @@ document.querySelector('.userScreenshot button').addEventListener('click', () =>
         link.download = `${City}-weather-screenshot.png`;
         link.href = canvas.toDataURL();
         link.click();
+        capture.play();
+        capture.currentTime = 0;
     }).catch((err) => showError(err));
 });
