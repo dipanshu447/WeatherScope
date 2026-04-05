@@ -1,0 +1,28 @@
+{
+  "tagline": "Weather app with geolocation, API integration, and secure serverless handling",
+  "featured": false,
+  "status": "completed",
+  "details": {
+    "overview": "A weather application that fetches real-time data using OpenWeatherMap API with geolocation support and secure API handling using serverless functions.",
+    "image": "https://github.com/dipanshu447/WeatherScope/raw/main/assets/readme/desktop-preview.gif",
+    "key_features": [
+      "Geolocation-based weather detection",
+      "City search with stored search history",
+      "Secure API key handling via serverless functions",
+      "Dynamic UI updates based on weather conditions",
+      "Screenshot capture using html2canvas"
+    ],
+    "what_i_learned": [
+      "Working with REST APIs and real-time data fetching",
+      "Handling user input and search functionality",
+      "Using localStorage for persistence",
+      "Securing API keys using serverless functions",
+      "Deploying full-stack apps using Vercel"
+    ],
+    "tech_stack": {
+      "frontend": ["HTML", "CSS", "JavaScript"],
+      "backend": ["Serverless Functions"],
+      "tools": ["Vercel", "Postman", "html2canvas"]
+    }
+  }
+}
