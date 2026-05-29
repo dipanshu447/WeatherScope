@@ -1,28 +1,49 @@
 {
-  "tagline": "Weather app with geolocation, API integration, and secure serverless handling",
+  "portfolio_order": 4,
   "featured": false,
+  "card_tags": [
+    "REST API",
+    "Serverless",
+    "Geolocation"
+  ],
+  "tagline": "Weather application with geolocation, API integration, and secure serverless data handling.",
   "status": "completed",
   "details": {
-    "overview": "A weather application that fetches real-time data using OpenWeatherMap API with geolocation support and secure API handling using serverless functions.",
+    "overview": "WeatherScope is a weather application that provides real-time weather information using the OpenWeatherMap API. The project includes geolocation-based weather detection, city search, persistent search history, and secure API handling through serverless functions.",
     "image": "https://github.com/dipanshu447/WeatherScope/raw/main/assets/readme/desktop-preview.gif",
+    "engineering_challenges": [
+      "Securing API keys using serverless backend functions",
+      "Integrating geolocation services for location-based weather data",
+      "Managing asynchronous API requests and error handling",
+      "Persisting user search history across sessions"
+    ],
     "key_features": [
       "Geolocation-based weather detection",
-      "City search with stored search history",
-      "Secure API key handling via serverless functions",
-      "Dynamic UI updates based on weather conditions",
-      "Screenshot capture using html2canvas"
+      "City search with persistent search history",
+      "Secure API requests through serverless functions",
+      "Dynamic UI updates based on live weather conditions",
+      "Weather snapshot generation using html2canvas"
     ],
     "what_i_learned": [
       "Working with REST APIs and real-time data fetching",
-      "Handling user input and search functionality",
-      "Using localStorage for persistence",
-      "Securing API keys using serverless functions",
-      "Deploying full-stack apps using Vercel"
+      "Handling asynchronous operations and API responses",
+      "Using localStorage for client-side persistence",
+      "Securing frontend applications with serverless functions"
     ],
     "tech_stack": {
-      "frontend": ["HTML", "CSS", "JavaScript"],
-      "backend": ["Serverless Functions"],
-      "tools": ["Vercel", "Postman", "html2canvas"]
+      "frontend": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "backend": [
+        "Serverless Functions"
+      ],
+      "tools": [
+        "Vercel",
+        "Postman",
+        "html2canvas"
+      ]
     }
   }
 }
